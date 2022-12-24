@@ -4,7 +4,7 @@
     <title>Session 1. Data analytics and visualization with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Wu Zeng, MD, PhD" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.18/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="libs/css/default-fonts.css" type="text/css" />
     <link rel="stylesheet" href="libs/css/my-red.css" type="text/css" />
@@ -260,13 +260,83 @@ class: middle
 
 1. R from Comprehensive R Archive Network (CRAN): .url[https://cran.r-project.org]
 
-1. R studio from .url[https://posit.co/download/rstudio-desktop/]
+1. RStudio from .url[https://posit.co/download/rstudio-desktop/]
 
 1. Use RStudio for the future analysis
 ---
 class: middle 
 
-# Test
+# RStudio widowns
+
+&lt;img src="libs/pic/S1-F2.png" width="900px"&gt;
+---
+class: middle 
+
+# Managing workspace 
+
+- getwd(): **Obtain workspace directory**
+
+- setwd(): **Set up workspace directory**
+
+- ls(): **List the ojectives in the current workspace**
+
+- rm(objectlist): **Remove one or more objects**
+
+- help(options): **Learn about available options**
+
+- savehistory("myfile"): **Save the commands history to myfile (default = .Rhistory).**
+
+- loadhistory("myfile"): **Reload a command’s history (default = .Rhistory)**
+
+- save.image("myfile): **Save the workspace to myfile (default = .RData)**
+
+- save(objectlist, file="myfile"): **Save specific objects to a file**
+
+- load("myflile"): **Load a workspace into the current session (default = .RData)**
+
+- q(): **Quit R**
+---
+
+
+class: middle 
+
+# Demonstration
+
+.pull-left[
+
+```r
+options(digits = 3)
+*x &lt;- runif(20)
+*summary(x)
+*hist(x)
+```
+]
+
+.pull-right[
+
+```
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.014   0.353   0.561   0.508   0.649   0.944 
+```
+
+&lt;img src="index_files/figure-html/first-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+]
+---
+class: middle 
+
+# Package 
+
+Packages are collections of R functions, data, and compiled code in a well-defined format. 
+
+- libary(): shows you what pakcage you've saved in your library
+
+Insitalling a package
+
+- Install.packages("packagename"): Install a named package
+
+Loading a package 
+
+- library(packagename): use the named package
 
 ---
 background-image: url("libs/pic/bookshelf.jpg")
