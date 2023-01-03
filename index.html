@@ -6,12 +6,18 @@
     <meta name="author" content="Wu Zeng, MD, PhD" />
     <script src="libs/header-attrs-2.18/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
     <link rel="stylesheet" href="libs/css/default-fonts.css" type="text/css" />
     <link rel="stylesheet" href="libs/css/my-red.css" type="text/css" />
     <link rel="stylesheet" href="libs/css/hygge-gu.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
+
+
 
 class: title-slide, center, middle, inverse
 
@@ -27,7 +33,7 @@ class: title-slide, center, middle, inverse
 
 #### Georgetown University
 
-### March 10 2022
+### Jan 11 2023
 
 ---
 class:middle
@@ -63,18 +69,28 @@ class: middle
 
 - Office hour: 11:30 AM - 12:30 PM on Monday or .red[by appointment]
 ---
+background-image: url("https://m.media-amazon.com/images/I/41yojza8x9L._SL500_.jpg")
+background-size: curtain
+background-position: 70% 40%
+
 class: middle 
 
 # Learning resources 
 
 - Lectures 
 
-- Reference book. 
-  - R in Action. .url[https://www.manning.com/books/r-in-action-second-edition] 
-  
-  - R graphics Cookbook. .url[https://r-graphics.org/index.html]
+- Required books: 
 
-- online resources
+  - [R in Action](https://www.manning.com/books/r-in-action-second-edition)
+  
+  - [R for Data Science](https://r4ds.had.co.nz)
+
+- Reference book
+
+  - [R graphics Cookbook](https://r-graphics.org/index.html)
+  
+
+- Online resources
 
 - Canvas 
 
@@ -90,7 +106,7 @@ class: middle
 
 - Most week: 1.5 hour lecture and 1 hour practice 
 
-- 10 assignments, 1 mid-term exam, 1 final project 
+- 10 assignments, 1 final project 
 
 ---
 class: top
@@ -105,11 +121,11 @@ class: top
     
     - Descriptive analysis: mean, median, mode, standard devariation, range
     
-    - Bivariate analysis: t-test, ANOVA, correlation, simple regression
+    - Bivariate analysis: t-test, ANOVA, rank test (non-parametric tests), correlation, simple regression
   
   - #### Categorical variables
     
-    - Descriptive analysis: freqency
+    - Descriptive analysis: frequency
     
     - Bivariate analysis: `\(\chi^2\)` test, logistic regression
 ]
@@ -122,13 +138,13 @@ class: top
   
     - Descriptive analysis: bar chart, box chart, histogram
     
-    - Bivariate analysis: Bar charge, scatter plot
+    - Bivariate analysis: Bar chart, scatter plot
     
   - #### Categorical analysis
     
-    - Descriptive analysis: pie chart
+    - Descriptive analysis: Pie chart
     
-    - Bivariate analysis: 
+    - Bivariate analysis: Bar chart
 ]
 ---
 class: top
@@ -136,51 +152,46 @@ class: top
 # Learning objectives
 
 .pull-left[
-1.	####Appreciate the science of statistics and the scope of its potential applications
+1.	Appreciate the science of statistics and the scope of its potential applications
 
-2.	#### Summarize and present data in meaningful ways 
+2.	Summarize and present data in meaningful ways 
 
-3.	#### Select the appropriate statistical analysis methods 
+3.	Select the appropriate statistical analysis methods 
 ]
 
 .pull-right[
-4.	#### Conduct, present, and interpret the results of common statistical analyses using R 
+4.	Conduct, present, and interpret the results of common statistical analyses using R 
 
-5.	#### Construct basic data displays that express the meaning of data
+5. Construct basic data displays that express the meaning of data
 
-6.	#### Use visualizations to aid in the presentation of scientific concepts 
+6.	Use visualizations to aid in the presentation of scientific concepts 
 ]
 ---
 class: middle 
 
 # Teaching methods 
 
-- ### Lectures 
+- Lectures 
 
-- ### In-class exercise 
+- In-class exercise 
 
-- ### Discussion 
+- Discussion 
 
 ---
 class: middle 
 
 ### Course evaluation 
 
-- Class particpation (10%) 
+- Class participation (10%)&lt;sup&gt;1&lt;/sup&gt;
 
 - Problem sets (30%)
 
-- Med-term exam (25%)
+- Final project (paper) (60%)
 
-- Final project (35%)
----
-class: middle 
+.footnote[&lt;sup&gt;1&lt;/sup&gt; If students miss three sessions during the semester, .red[`F`] will be given]
 
-# Textbook 
-
-- No textbook
-
-- online resources
+???
+This is note for myself. it is important to emphasize that students who missed three sessions will be given a F in the final.
 
 ---
 class: middle 
@@ -188,29 +199,29 @@ class: middle
 # Scheduel of class 
 
 .pull-left[
-Session 1: Overview of statistical methods and intalling R
+Session 1: Overview of statistical methods and installing `R`
 
-Session 2: Data management 1
+Session 2: Data structure and data importation
 
-Session 3: Data management 2
+Session 3: Data management 1
 
-Session 4: Basic statistics 
+Session 4: Data management 2
 
-Session 5: Basic graph 
+Session 5: Basic statistics 
 
-session 6: t-test and its graphs
+Session 6: Basic graphs
 
-Session 7 : Analysis of variance and its graphs
+Session 7: t-test
 ]
 
 .pull-right[
-Session 8: Mid-term exam
+Session 8: Analysis of variance
 
 Session 9: Correlations and simple regression
 
 Session 10: Multiple linear regression 
 
-Session 11: Chi-square test and its graphs 
+Session 11: Chi-square test 
 
 Session 12: logistic regression 1
 
@@ -230,9 +241,263 @@ class: middle
 
 - If you are uncertain in a specific instance, ask the instructor
 ---
-class: middle 
+class: center, middle, inverse
 
 # Overview of statistics 
+
+---
+# Data and statistics 
+
+- .red[Data] consists of information coming from observations, counts, measurements, or responses.
+
+- .red[Statistics] is the science of collecting, organizing, analyzing, and interpreting data in order to make decisions.
+
+- A .red[population] is the collection of all outcomes, responses, measurement, or counts that are of interest.
+
+- A .red[sample] is a subset of a population
+---
+# Parameteres &amp; Statistics 
+
+- A **parameter** is a numerical description of a **population** characteristic.
+
+
+- A **statistic** is a numerical description of a **sample** characteristic.
+
+---
+# Branches of statistics 
+
+The study of statistics has two major branches: .red[descriptive statistics] and .red[inferential statistics].
+
+
+- Descriptive statistics: Involves the organization, summarization,  and display of data.
+
+  - For example, tables or graphs are used to organize data, and descriptive values such as the average score are used to summarize data.  
+
+
+- Inferential statistics: Involves using a sample to draw conclusions about a population.
+
+  - Because a sample is typically only a part of the whole population, sample data provide only limited information about the population.  As a result, sample statistics are generally imperfect representatives of the corresponding population parameters. 
+
+---
+# Data classification 
+
+Data sets can consist of two types of data: .red[qualitative] data and .red[quantitative] data.
+
+- Qualitative data: Consists of attributes, labels, or nonnumerical entries.
+
+- Quantitative data: Consists of numerical measurements or counts.
+
+Example 
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Student &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; GPA &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sally &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.22 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bob &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.98 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Cindy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.75 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mark &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.24 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Kathy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.84 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+# Levels of measurement 
+
+The level of measurement determines which statistical calculations are meaningful.  The four levels of measurement are: .red[nominal], .red[ordinal], .red[interval], and .red[ratio].
+
+Nominal scale 
+
+- A nominal scale is an unordered set of categories identified only by name.  Nominal measurements only permit you to determine whether two individuals are the same or different.
+
+- Example: blood type, name
+
+Ordinal scale 
+
+- An ordinal scale is an .red[ordered] set of categories.  Ordinal measurements tell you the direction of difference between two individuals.
+
+- Example: health status (poor, fair, good, excellent)
+
+Nominal and ordinal variables are often called as **categorical** variables.
+---
+
+# Measurement continue ...
+
+Interval scale 
+
+- An interval scale is an ordered series of equal-sized categories.  Interval measurements identify the direction and magnitude of a difference.  The zero point is located arbitrarily on an interval scale.
+
+- Example: temperature
+
+Ratio scale 
+
+- A ratio scale is an interval scale where a value of zero indicates none of the variable.  Ratio measurements identify the direction and magnitude of differences and allow ratio comparisons of measurements.
+
+- Example: height, weight
+
+interval and ratio variables are generally called as **continuous variables**
+---
+# Statistical methods 
+
+The choice of statistical methods largely depends on the type of the dependent variable
+
+&lt;center&gt;
+
+&lt;img src="libs/pic/S1-F0.png" width = "650px"&gt;
+
+&lt;/center&gt;
+---
+## chi-squared test is a particular case of logistic regression 
+
+.panelset[
+.panel[.panel-name[Code]
+
+```r
+ndta &lt;- mtcars 
+# chis-square test between vs (engine 0= v-shaped and 1 = straight) and am (transmission 0 = auto and 1 = manual) 
+with(ndta,{
+table(vs, am)
+})
+chisq.test(ndta$vs,ndta$am)
+```
+]
+.panel[.panel-name[chi-squared test results]
+
+```
+   am
+vs   0  1
+  0 12  6
+  1  7  7
+```
+
+```
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  ndta$vs and ndta$am
+X-squared = 0.34754, df = 1, p-value = 0.5555
+```
+]
+
+.panel[.panel-name[logistic regression Code]
+
+```r
+lmodel &lt;- glm(am ~ vs, data = mtcars, family = "binomial"(link = 'logit'))
+summary(lmodel)
+#anova(lmodel,test = "Chisq")
+```
+]
+.panel[.panel-name[logistic regression results]
+
+```
+
+Call:
+glm(formula = am ~ vs, family = binomial(link = "logit"), data = mtcars)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.1774  -0.9005  -0.9005   1.1774   1.4823  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)  -0.6931     0.5000  -1.386    0.166
+vs            0.6931     0.7319   0.947    0.344
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 43.230  on 31  degrees of freedom
+Residual deviance: 42.323  on 30  degrees of freedom
+AIC: 46.323
+
+Number of Fisher Scoring iterations: 4
+```
+]
+]
+---
+## t test and ANOVA are particlar case of linear regression 
+
+.panelset[
+.panel[.panel-name[T test code]
+
+```r
+ndta &lt;- mtcars 
+# test between mpg and vs (engine 0= v-shaped and 1 = straight) 
+with(ndta,{
+t.test(mpg~vs)
+})
+```
+]
+.panel[.panel-name[t test results]
+
+```
+
+	Welch Two Sample t-test
+
+data:  mpg by vs
+t = -4.6671, df = 22.716, p-value = 0.0001098
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -11.462508  -4.418445
+sample estimates:
+mean in group 0 mean in group 1 
+       16.61667        24.55714 
+```
+]
+
+.panel[.panel-name[linear regression Code]
+
+```r
+linear1 &lt;- lm(mpg ~ vs, data = mtcars)
+summary(linear1)
+```
+]
+.panel[.panel-name[Linear regression results]
+
+```
+
+Call:
+lm(formula = mpg ~ vs, data = mtcars)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-6.757 -3.082 -1.267  2.828  9.383 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   16.617      1.080  15.390 8.85e-16 ***
+vs             7.940      1.632   4.864 3.42e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.581 on 30 degrees of freedom
+Multiple R-squared:  0.4409,	Adjusted R-squared:  0.4223 
+F-statistic: 23.66 on 1 and 30 DF,  p-value: 3.416e-05
+```
+]
+]
+
+---
+class: middle, center, inverse 
+
+# R programming
 
 ---
 class: middle 
@@ -248,11 +513,14 @@ class: middle
 - Reproducible
 
 ---
-class: middle, center
 
 # Steps in a typical data analysis 
 
-![](libs/pic/S1-F1.jpeg)
+&lt;center&gt;
+
+&lt;img src="libs/pic/S1-F1.jpeg" width="500px"&gt;
+
+&lt;/center&gt;
 ---
 class: middle
 
@@ -264,93 +532,131 @@ class: middle
 
 1. Use RStudio for the future analysis
 ---
-class: middle 
+# Working with R 
 
-# RStudio widowns
+- R is **case-sensitive**
 
-&lt;img src="libs/pic/S1-F2.png" width="900px"&gt;
+- Enter command one at a time or run a set of commands from a source file
+
+- Most functionality is provided through built-in and user-created functions
+
+- Basic functions available by default, other functions contained in package
+
+- R statements consist of functions and assignments. R use the symbol of `&lt;-` for assignments, rather than `=` sign.  
+
+- Comments are preceded by the `#` symbol
 ---
-class: middle 
+# Examples 
 
-# Managing workspace 
+.panelset[
+.panel[.panel-name[Code]
 
-- getwd(): **Obtain workspace directory**
+```r
+age &lt;- c(1,3,5,2,11,9,3,9,12,3)
+weight &lt;- c(4.4,5.3,7.2,5.2,8.5,7.3,6.0,10.4,10.2,6.1)
+mean(weight)
+sd(weight)
+cor(age,weight)
+```
+]
 
-- setwd(): **Set up workspace directory**
+.panel[.panel-name[Results]
 
-- ls(): **List the ojectives in the current workspace**
+```
+[1] 7.06
+```
 
-- rm(objectlist): **Remove one or more objects**
+```
+[1] 2.077498
+```
 
-- help(options): **Learn about available options**
-
-- savehistory("myfile"): **Save the commands history to myfile (default = .Rhistory).**
-
-- loadhistory("myfile"): **Reload a command’s history (default = .Rhistory)**
-
-- save.image("myfile): **Save the workspace to myfile (default = .RData)**
-
-- save(objectlist, file="myfile"): **Save specific objects to a file**
-
-- load("myflile"): **Load a workspace into the current session (default = .RData)**
-
-- q(): **Quit R**
+```
+[1] 0.9075655
+```
+]
+]
 ---
+# Plot 
 
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="600" height="550" style="display: block; margin: auto;" /&gt;
+---
+# Group practice 1
 
-class: middle 
+1. Install R and Rstudio 
 
-# Demonstration
+1. Simple math calculation in R
 
+  a. addition, deduction, multiplication, division
+  
+  b. exponential function, log function
+  
+1. Create a R script file under Rstudio 
+
+  a. `file --&gt; New file --&gt; R Script`
+  
+  b. Write simple R codes 
+  
+  c. Click `Run`
+  
+1. Save the R script file
+---
+# Explore a dataset 
 .pull-left[
 
 ```r
-options(digits = 3)
-*x &lt;- runif(20)
-*summary(x)
-*hist(x)
+View(mtcars) # view dataset
+str(mtcars) # browse data structure
+mean(mtcars$mpg) # calculate mean
+sd(mtcars$mpg) # calculate standard deviation
+table(mtcars$am) # tabulate frequency
 ```
 ]
-
 .pull-right[
 
 ```
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  0.021   0.229   0.556   0.524   0.775   0.980 
+'data.frame':	32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
 ```
 
-&lt;img src="index_files/figure-html/first-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+```
+[1] 20.09062
+```
+
+```
+[1] 6.026948
+```
+
+```
+
+ 0  1 
+19 13 
+```
+
 ]
 ---
-class: middle 
+# Group practice 2
 
-# Package 
+Identify a dataset to work with from ICPSR (Inter-University Consortiumn for Political and Social Research)
 
-Packages are collections of R functions, data, and compiled code in a well-defined format. 
+- Go to the website of [ICPSR](https://www.icpsr.umich.edu/web/pages/)
 
-- libary(): shows you what pakcage you've saved in your library
+- Create an account
 
-Insitalling a package
+- Search datasets 
 
-- Install.packages("packagename"): Install a named package
+- Review the content of data 
 
-Loading a package 
-
-- library(packagename): use the named package
----
-class: middle 
-
-# Dataset 
-
----
-class: middle
-
-# Data importation
-
----
-class: middle 
-
-# Type of variables
+- Identify the dataset
 
 ---
 background-image: url("libs/pic/bookshelf.jpg")
