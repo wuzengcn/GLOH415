@@ -6,6 +6,26 @@
  *
  ************************************/
 
+/***************
+*Added by wu
+*
+************/
+
+a, a > code {
+  color:#900012;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  color: #900012;
+}
+
+.inverse {
+  background-color: #900012;
+  color: #FFFFFF;
+  /* 001A57 728302*/
+}
+
 
 /**************
  *
