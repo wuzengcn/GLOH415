@@ -446,8 +446,7 @@ The choice of statistical methods largely depends on the type of the dependent v
 ---
 ## chi-squared test is a particular case of logistic regression 
 
-.panelset[
-.panel[.panel-name[Code]
+.pull-left[
 
 ```r
 ndta &lt;- mtcars 
@@ -455,16 +454,17 @@ ndta &lt;- mtcars
 with(ndta,{
 table(vs, am)
 })
-chisq.test(ndta$vs,ndta$am)
 ```
-]
-.panel[.panel-name[chi-squared test results]
 
 ```
    am
 vs   0  1
   0 12  6
   1  7  7
+```
+
+```r
+chisq.test(ndta$vs,ndta$am)
 ```
 
 ```
@@ -476,15 +476,13 @@ X-squared = 0.34754, df = 1, p-value = 0.5555
 ```
 ]
 
-.panel[.panel-name[logistic regression Code]
+
+.pull-right[
 
 ```r
 lmodel &lt;- glm(am ~ vs, data = mtcars, family = "binomial"(link = 'logit'))
 summary(lmodel)
-#anova(lmodel,test = "Chisq")
 ```
-]
-.panel[.panel-name[logistic regression results]
 
 ```
 
@@ -508,47 +506,47 @@ AIC: 46.323
 
 Number of Fisher Scoring iterations: 4
 ```
+
+```r
+#anova(lmodel,test = "Chisq")
+```
 ]
-]
+
 ---
 ## t test and ANOVA are particlar case of linear regression 
 
-.panelset[
-.panel[.panel-name[T test code]
+.pull-left[
 
 ```r
 ndta &lt;- mtcars 
 # test between mpg and vs (engine 0= v-shaped and 1 = straight) 
 with(ndta,{
-t.test(mpg~vs)
+t.test(mpg~vs, var.equal = TRUE)
 })
 ```
-]
-.panel[.panel-name[t test results]
 
 ```
 
-	Welch Two Sample t-test
+	Two Sample t-test
 
 data:  mpg by vs
-t = -4.6671, df = 22.716, p-value = 0.0001098
+*t = -4.8644, df = 30, p-value = 3.416e-05
 alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
 95 percent confidence interval:
- -11.462508  -4.418445
+ -11.274221  -4.606732
 sample estimates:
 mean in group 0 mean in group 1 
        16.61667        24.55714 
 ```
 ]
 
-.panel[.panel-name[linear regression Code]
+.pull-right[
+
 
 ```r
 linear1 &lt;- lm(mpg ~ vs, data = mtcars)
 summary(linear1)
 ```
-]
-.panel[.panel-name[Linear regression results]
 
 ```
 
@@ -562,7 +560,7 @@ Residuals:
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
 (Intercept)   16.617      1.080  15.390 8.85e-16 ***
-vs             7.940      1.632   4.864 3.42e-05 ***
+*vs             7.940      1.632   4.864 3.42e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -570,7 +568,6 @@ Residual standard error: 4.581 on 30 degrees of freedom
 Multiple R-squared:  0.4409,	Adjusted R-squared:  0.4223 
 F-statistic: 23.66 on 1 and 30 DF,  p-value: 3.416e-05
 ```
-]
 ]
 
 ---
@@ -639,44 +636,45 @@ class: middle
 ---
 # Examples 
 
-.panelset[
-.panel[.panel-name[Code]
+
 
 ```r
 age &lt;- c(1,3,5,2,11,9,3,9,12,3)
 weight &lt;- c(4.4,5.3,7.2,5.2,8.5,7.3,6.0,10.4,10.2,6.1)
 mean(weight)
-sd(weight)
-cor(age,weight)
 ```
-]
-
-.panel[.panel-name[Results]
 
 ```
 [1] 7.06
+```
+
+```r
+sd(weight)
 ```
 
 ```
 [1] 2.077498
 ```
 
+```r
+cor(age,weight)
+```
+
 ```
 [1] 0.9075655
 ```
-]
-]
+
 ---
 # Plot 
 
-&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="600" height="550" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="600" height="530" style="display: block; margin: auto;" /&gt;
 ---
 
 # More plots 
 
 &lt;center&gt;
 
-&lt;img src="libs/pic/S1-F5.png" width="530px"&gt; 
+&lt;img src="libs/pic/S1-F5.png" height ="500px"&gt; 
 
 ---
 # Group practice 1
